@@ -39,14 +39,17 @@ function useGuestbook() {
   const addEntry = useCallback(
     async ({ name, message, email, region, keyword, rating }) => {
       setIsSubmitting(true);
-      const { error: insertError } = await supabase.from('portfolio_guestbook').insert({
-        name,
-        message,
-        email: email || null,
-        region: region || null,
-        keyword: keyword || null,
-        rating: rating || null,
-      });
+      const { error: insertError } = await supabase
+        .from('portfolio_guestbook')
+        .insert({
+          name,
+          message,
+          email: email || null,
+          region: region || null,
+          keyword: keyword || null,
+          rating: rating || null,
+        })
+        .select('id, name, message, region, keyword, rating, created_at');
       setIsSubmitting(false);
 
       if (insertError) {
