@@ -17,6 +17,16 @@ const INITIAL_FORM = {
   rating: 0,
 };
 
+const whiteFieldSx = {
+  '& .MuiInputBase-input': { color: '#FFFFFF' },
+  '& .MuiInputLabel-root': { color: 'rgba(255, 255, 255, 0.8)' },
+  '& .MuiInputLabel-root.Mui-focused': { color: '#FFFFFF' },
+  '& .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(255, 255, 255, 0.6)' },
+  '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#FFFFFF' },
+  '& .Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#FFFFFF' },
+  '& .MuiSvgIcon-root': { color: '#FFFFFF' },
+};
+
 /**
  * GuestbookForm 컴포넌트
  *
@@ -70,7 +80,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
         sx={{
           fontSize: { xs: '1.2rem', md: '1.4rem' },
           fontWeight: 700,
-          color: 'var(--color-text-primary)',
+          color: '#FFFFFF',
         }}
       >
         방명록 남기기
@@ -85,6 +95,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
         required
         size="small"
         fullWidth
+        sx={whiteFieldSx}
       />
 
       <TextField
@@ -96,6 +107,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
         minRows={3}
         size="small"
         fullWidth
+        sx={whiteFieldSx}
       />
 
       <TextField
@@ -105,6 +117,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
         onChange={handleChange('email')}
         size="small"
         fullWidth
+        sx={whiteFieldSx}
       />
 
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
@@ -115,6 +128,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
           onChange={handleChange('region')}
           size="small"
           fullWidth
+          sx={whiteFieldSx}
         >
           <MenuItem value="">선택 안 함</MenuItem>
           {REGION_OPTIONS.map((region) => (
@@ -130,11 +144,12 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
           onChange={handleChange('keyword')}
           size="small"
           fullWidth
+          sx={whiteFieldSx}
         />
       </Box>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-        <Typography sx={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>
+        <Typography sx={{ fontSize: '0.9rem', color: '#FFFFFF' }}>
           별점 (선택)
         </Typography>
         <Rating
@@ -149,12 +164,13 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
         disabled={isSubmitting}
         sx={{
           alignSelf: 'flex-start',
-          color: 'var(--color-text-primary)',
-          bgcolor: 'var(--color-primary-light)',
-          boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
+          color: '#FFFFFF',
+          bgcolor: 'transparent',
+          border: '1px solid #FFFFFF',
+          boxShadow: 'none',
           '&:hover': {
-            bgcolor: 'var(--color-primary-light)',
-            boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)',
+            bgcolor: 'rgba(255, 255, 255, 0.1)',
+            boxShadow: 'none',
           },
         }}
       >

@@ -35,7 +35,7 @@ function ContactSection() {
           sx={{
             p: { xs: 3, md: 5 },
             mb: 4,
-            borderRadius: 2,
+            borderRadius: 0,
             bgcolor: 'var(--color-bg-sky)',
             boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
           }}

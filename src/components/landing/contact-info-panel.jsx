@@ -23,20 +23,20 @@ function ContactInfoPanel() {
         sx={{
           fontSize: { xs: '1.5rem', md: '1.8rem' },
           fontWeight: 700,
-          color: 'var(--color-text-primary)',
+          color: '#FFFFFF',
         }}
       >
         Contact
       </Typography>
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-        <EmailOutlinedIcon sx={{ fontSize: '1.1rem', color: 'var(--color-secondary)' }} />
+        <EmailOutlinedIcon sx={{ fontSize: '1.1rem', color: '#FFFFFF' }} />
         <Typography
           component="a"
           href={`mailto:${CONTACT_EMAIL}`}
           sx={{
             fontSize: { xs: '0.95rem', md: '1rem' },
-            color: 'var(--color-text-secondary)',
+            color: '#FFFFFF',
             textDecoration: 'none',
             '&:hover': { color: 'var(--color-link-hover)' },
           }}
@@ -55,8 +55,8 @@ function ContactInfoPanel() {
           sx={{
             width: 36,
             height: 36,
-            border: '1px solid var(--color-secondary)',
-            color: 'var(--color-secondary)',
+            border: '1px solid #FFFFFF',
+            color: '#FFFFFF',
             '&:hover': {
               borderColor: 'var(--color-accent)',
               color: 'var(--color-accent)',
