@@ -24,10 +24,11 @@ function ContactSection() {
       component="section"
       sx={{
         width: '100%',
-        background: 'linear-gradient(to bottom, var(--color-bg-primary), var(--color-forest-light))',
+        background:
+          'linear-gradient(to bottom, var(--color-bg-primary) 0%, var(--color-bg-primary) 55%, var(--color-forest-light) 100%)',
         display: 'flex',
         justifyContent: 'center',
-        py: { xs: 8, md: 16 },
+        py: { xs: 14, md: 28 },
       }}
     >
       <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
