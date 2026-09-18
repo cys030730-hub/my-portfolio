@@ -48,7 +48,7 @@ function ProjectsSection() {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  border: '1px solid var(--color-border)',
+                  borderRadius: 0,
                   bgcolor: 'var(--color-primary-light)',
                   boxShadow: 'none',
                   color: 'var(--color-text-primary)',
@@ -61,13 +61,13 @@ function ProjectsSection() {
         </Grid>
         <Box sx={{ textAlign: 'center' }}>
           <Button
-            variant="outlined"
             sx={{
-              color: 'var(--color-link)',
-              borderColor: 'var(--color-border)',
+              color: 'var(--color-text-primary)',
+              bgcolor: 'var(--color-primary-light)',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
               '&:hover': {
-                borderColor: 'var(--color-accent)',
-                color: 'var(--color-link-hover)',
+                bgcolor: 'var(--color-primary-light)',
+                boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)',
               },
             }}
           >

@@ -16,12 +16,12 @@ function HeroSection() {
       component="section"
       sx={{
         width: '100%',
-        bgcolor: 'var(--color-bg-secondary)',
-        borderBottom: '1px solid var(--color-border)',
+        minHeight: '100vh',
+        background: 'linear-gradient(to bottom, var(--color-bg-secondary), var(--color-bg-primary))',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        py: { xs: 8, md: 14 },
+        py: { xs: 16, md: 32 },
       }}
     >
       <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 }, textAlign: 'center' }}>

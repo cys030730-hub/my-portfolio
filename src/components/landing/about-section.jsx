@@ -21,7 +21,7 @@ function AboutSection() {
         bgcolor: 'var(--color-bg-primary)',
         display: 'flex',
         justifyContent: 'center',
-        py: { xs: 6, md: 10 },
+        py: { xs: 20, md: 36 },
       }}
     >
       <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
@@ -29,8 +29,8 @@ function AboutSection() {
           sx={{
             p: { xs: 3, md: 5 },
             textAlign: 'center',
-            border: '1px solid var(--color-border-light)',
-            bgcolor: 'var(--color-button-primary)',
+            borderRadius: 0,
+            bgcolor: '#EAEBDD',
             boxShadow: 'none',
           }}
         >
@@ -45,13 +45,13 @@ function AboutSection() {
             여기는 About Me 섹션입니다. 간단한 자기소개와 '더 알아보기' 버튼이 들어갈 예정입니다.
           </Typography>
           <Button
-            variant="outlined"
             sx={{
-              color: 'var(--color-link)',
-              borderColor: 'var(--color-border)',
+              color: 'var(--color-text-primary)',
+              bgcolor: 'var(--color-primary-light)',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.15)',
               '&:hover': {
-                borderColor: 'var(--color-accent)',
-                color: 'var(--color-link-hover)',
+                bgcolor: 'var(--color-primary-light)',
+                boxShadow: '0 3px 10px rgba(0, 0, 0, 0.2)',
               },
             }}
           >

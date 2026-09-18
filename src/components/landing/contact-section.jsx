@@ -1,48 +1,45 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Card from '@mui/material/Card';
-import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import ContactInfoPanel from './contact-info-panel.jsx';
+import GuestbookForm from './guestbook-form.jsx';
+import GuestbookList from './guestbook-list.jsx';
+import useGuestbook from '../../hooks/use-guestbook.js';
 
 /**
  * ContactSection 컴포넌트
  *
- * Home 페이지의 Contact 섹션. 연락처, SNS, 메시지 폼이 들어갈 자리.
+ * Home 페이지의 Contact 섹션. 좌측 연락처 정보와 우측 방명록(등록 폼 + 목록)을 2단으로 배치한다.
  *
  * Example usage:
  * <ContactSection />
  */
 function ContactSection() {
+  const { entries, isLoading, error, addEntry, isSubmitting } = useGuestbook();
+
   return (
     <Box
       component="section"
       sx={{
         width: '100%',
-        bgcolor: 'var(--color-secondary)',
+        background: 'linear-gradient(to bottom, var(--color-bg-primary), var(--color-forest-light))',
         display: 'flex',
         justifyContent: 'center',
-        py: { xs: 6, md: 10 },
+        py: { xs: 8, md: 16 },
       }}
     >
       <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
-        <Card
-          sx={{
-            p: { xs: 3, md: 5 },
-            textAlign: 'center',
-            border: '1px solid var(--color-border-light)',
-            bgcolor: 'var(--color-button-primary)',
-            boxShadow: 'none',
-          }}
-        >
-          <Typography
-            sx={{
-              fontSize: { xs: '1rem', md: '1.2rem' },
-              lineHeight: 1.6,
-              color: 'var(--color-text-primary)',
-            }}
-          >
-            여기는 Contact 섹션입니다. 연락처, SNS, 간단한 메시지 폼이 들어갈 예정입니다.
-          </Typography>
-        </Card>
+        <Grid container spacing={{ xs: 6, md: 8 }}>
+          <Grid size={{ xs: 12, md: 5 }}>
+            <ContactInfoPanel />
+          </Grid>
+          <Grid size={{ xs: 12, md: 7 }}>
+            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+              <GuestbookForm onSubmit={addEntry} isSubmitting={isSubmitting} />
+              <GuestbookList entries={entries} isLoading={isLoading} error={error} />
+            </Box>
+          </Grid>
+        </Grid>
       </Container>
     </Box>
   );
