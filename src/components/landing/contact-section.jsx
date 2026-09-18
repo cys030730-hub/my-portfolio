@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
+import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import ContactInfoPanel from './contact-info-panel.jsx';
 import GuestbookForm from './guestbook-form.jsx';
@@ -9,7 +10,8 @@ import useGuestbook from '../../hooks/use-guestbook.js';
 /**
  * ContactSection 컴포넌트
  *
- * Home 페이지의 Contact 섹션. 좌측 연락처 정보와 우측 방명록(등록 폼 + 목록)을 2단으로 배치한다.
+ * Home 페이지의 Contact 섹션. 연락처 정보와 방명록 등록 폼을 하나의 카드(좌우 2단)로
+ * 묶어 보여주고, 등록된 방명록 목록은 카드 바깥 아래쪽에 별도로 표시한다.
  *
  * Example usage:
  * <ContactSection />
@@ -29,17 +31,26 @@ function ContactSection() {
       }}
     >
       <Container maxWidth="md" sx={{ px: { xs: 2, md: 3 } }}>
-        <Grid container spacing={{ xs: 6, md: 8 }}>
-          <Grid size={{ xs: 12, md: 5 }}>
-            <ContactInfoPanel />
-          </Grid>
-          <Grid size={{ xs: 12, md: 7 }}>
-            <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+        <Card
+          sx={{
+            p: { xs: 3, md: 5 },
+            mb: 4,
+            borderRadius: 2,
+            bgcolor: 'var(--color-bg-sky)',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.15)',
+          }}
+        >
+          <Grid container spacing={{ xs: 6, md: 8 }}>
+            <Grid size={{ xs: 12, md: 5 }}>
+              <ContactInfoPanel />
+            </Grid>
+            <Grid size={{ xs: 12, md: 7 }}>
               <GuestbookForm onSubmit={addEntry} isSubmitting={isSubmitting} />
-              <GuestbookList entries={entries} isLoading={isLoading} error={error} />
-            </Box>
+            </Grid>
           </Grid>
-        </Grid>
+        </Card>
+
+        <GuestbookList entries={entries} isLoading={isLoading} error={error} />
       </Container>
     </Box>
   );
