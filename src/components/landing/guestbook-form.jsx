@@ -49,7 +49,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
     event.preventDefault();
 
     if (!form.name.trim() || !form.message.trim()) {
-      setFeedback({ type: 'error', text: '이름과 메시지는 필수 입력 항목입니다.' });
+      setFeedback({ type: 'error', text: 'Name and message are required.' });
       return;
     }
 
@@ -64,9 +64,9 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
 
     if (result.success) {
       setForm(INITIAL_FORM);
-      setFeedback({ type: 'success', text: '방명록이 등록되었습니다. 감사합니다!' });
+      setFeedback({ type: 'success', text: 'Thanks! Your message has been added to the guestbook.' });
     } else {
-      setFeedback({ type: 'error', text: '등록에 실패했습니다. 잠시 후 다시 시도해주세요.' });
+      setFeedback({ type: 'error', text: 'Something went wrong. Please try again later.' });
     }
   };
 
@@ -83,13 +83,13 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
           color: '#FFFFFF',
         }}
       >
-        방명록 남기기
+        Guestbook
       </Typography>
 
       {feedback && <Alert severity={feedback.type}>{feedback.text}</Alert>}
 
       <TextField
-        label="이름"
+        label="Name"
         value={form.name}
         onChange={handleChange('name')}
         required
@@ -99,7 +99,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
       />
 
       <TextField
-        label="메시지"
+        label="Message"
         value={form.message}
         onChange={handleChange('message')}
         required
@@ -111,7 +111,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
       />
 
       <TextField
-        label="이메일 (비공개, 선택)"
+        label="Email (private, optional)"
         type="email"
         value={form.email}
         onChange={handleChange('email')}
@@ -123,14 +123,14 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
         <TextField
           select
-          label="지역 (선택)"
+          label="Region (optional)"
           value={form.region}
           onChange={handleChange('region')}
           size="small"
           fullWidth
           sx={whiteFieldSx}
         >
-          <MenuItem value="">선택 안 함</MenuItem>
+          <MenuItem value="">None</MenuItem>
           {REGION_OPTIONS.map((region) => (
             <MenuItem key={region} value={region}>
               {region}
@@ -139,7 +139,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
         </TextField>
 
         <TextField
-          label="한마디 키워드 (선택)"
+          label="Keyword (optional)"
           value={form.keyword}
           onChange={handleChange('keyword')}
           size="small"
@@ -150,7 +150,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
 
       <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
         <Typography sx={{ fontSize: '0.9rem', color: '#FFFFFF' }}>
-          별점 (선택)
+          Rating (optional)
         </Typography>
         <Rating
           value={form.rating}

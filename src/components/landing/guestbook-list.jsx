@@ -26,7 +26,7 @@ function GuestbookList({ entries, isLoading = false, error = null }) {
   if (error) {
     return (
       <Typography sx={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>
-        방명록을 불러오지 못했습니다.
+        Failed to load the guestbook.
       </Typography>
     );
   }
@@ -34,7 +34,7 @@ function GuestbookList({ entries, isLoading = false, error = null }) {
   if (entries.length === 0) {
     return (
       <Typography sx={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>
-        아직 등록된 방명록이 없습니다. 첫 번째 메시지를 남겨보세요!
+        No entries yet. Be the first to leave a message!
       </Typography>
     );
   }

@@ -51,7 +51,7 @@ function ContactInfoPanel() {
           href={GITHUB_URL}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="GitHub 프로필로 이동"
+          aria-label="Go to GitHub profile"
           sx={{
             width: 36,
             height: 36,
