@@ -46,9 +46,9 @@ function GuestbookList({ entries, isLoading = false, error = null }) {
           key={entry.id}
           sx={{
             p: 2,
-            border: '1px solid var(--color-border-light)',
-            borderRadius: 1,
+            borderRadius: 0,
             bgcolor: 'var(--color-bg-primary)',
+            boxShadow: '0 2px 8px rgba(0, 0, 0, 0.1)',
           }}
         >
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 0.5 }}>
