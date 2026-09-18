@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import Alert from '@mui/material/Alert';
+import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
 import { REGION_OPTIONS } from '../../utils/region-options.js';
 
 const INITIAL_FORM = {
@@ -21,9 +22,9 @@ const whiteFieldSx = {
   '& .MuiInputBase-input': { color: '#FFFFFF' },
   '& .MuiInputLabel-root': { color: 'rgba(255, 255, 255, 0.8)' },
   '& .MuiInputLabel-root.Mui-focused': { color: '#FFFFFF' },
-  '& .MuiOutlinedInput-notchedOutline': { borderColor: 'rgba(255, 255, 255, 0.6)' },
-  '&:hover .MuiOutlinedInput-notchedOutline': { borderColor: '#FFFFFF' },
-  '& .Mui-focused .MuiOutlinedInput-notchedOutline': { borderColor: '#FFFFFF' },
+  '& .MuiInput-underline:before': { borderBottomColor: 'rgba(255, 255, 255, 0.6)' },
+  '& .MuiInput-underline:hover:not(.Mui-disabled):before': { borderBottomColor: '#FFFFFF' },
+  '& .MuiInput-underline:after': { borderBottomColor: '#FFFFFF' },
   '& .MuiSvgIcon-root': { color: '#FFFFFF' },
 };
 
@@ -76,19 +77,23 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
       onSubmit={handleSubmit}
       sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
     >
-      <Typography
-        sx={{
-          fontSize: { xs: '1.2rem', md: '1.4rem' },
-          fontWeight: 700,
-          color: '#FFFFFF',
-        }}
-      >
-        Guestbook
-      </Typography>
+      <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <ChatBubbleOutlineIcon sx={{ fontSize: '1.2rem', color: '#FFFFFF' }} />
+        <Typography
+          sx={{
+            fontSize: { xs: '1.2rem', md: '1.4rem' },
+            fontWeight: 700,
+            color: '#FFFFFF',
+          }}
+        >
+          Guestbook
+        </Typography>
+      </Box>
 
       {feedback && <Alert severity={feedback.type}>{feedback.text}</Alert>}
 
       <TextField
+        variant="standard"
         label="Name"
         value={form.name}
         onChange={handleChange('name')}
@@ -99,6 +104,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
       />
 
       <TextField
+        variant="standard"
         label="Message"
         value={form.message}
         onChange={handleChange('message')}
@@ -111,6 +117,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
       />
 
       <TextField
+        variant="standard"
         label="Email (private, optional)"
         type="email"
         value={form.email}
@@ -122,6 +129,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
 
       <Box sx={{ display: 'flex', gap: 2, flexDirection: { xs: 'column', sm: 'row' } }}>
         <TextField
+          variant="standard"
           select
           label="Region (optional)"
           value={form.region}
@@ -139,6 +147,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
         </TextField>
 
         <TextField
+          variant="standard"
           label="Keyword (optional)"
           value={form.keyword}
           onChange={handleChange('keyword')}
@@ -163,7 +172,7 @@ function GuestbookForm({ onSubmit, isSubmitting = false }) {
         type="submit"
         disabled={isSubmitting}
         sx={{
-          alignSelf: 'flex-start',
+          alignSelf: 'flex-end',
           color: '#FFFFFF',
           bgcolor: 'transparent',
           border: '1px solid #FFFFFF',
